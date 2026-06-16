@@ -184,6 +184,37 @@ RESPONSIVE
 
 CHANGES LOG
 ------------
+2026-06-16f: Feature + two bug fixes:
+            FEATURE — Instrument line dividers replacing spice dividers:
+               The four animated spice dividers (large cream-background blocks with cardamom/saffron/lotus
+               SVG icons that were invisible — gold icons on cream background) were removed and replaced
+               with slim, elegant horizontal line dividers featuring hand-drawn SVG Indian instrument
+               silhouettes. Each divider is a 1.25rem-tall horizontal rule with a centered instrument icon
+               and gradient lines extending to each side. Four unique instruments, one per section transition:
+               1. Tabla (top-down view of bayan + dayan drum pair) — About → TAAL Meaning (light bg)
+               2. Sitar (neck with frets, gourd body, tuning pegs) — TAAL Meaning → Menu (dark bg)
+               3. Bansuri (horizontal bamboo flute with embouchure hole + 6 finger holes) — Events → Gallery (mid bg)
+               4. Veena (long neck, secondary upper gourd, main resonator) — Gallery → Reservations (light bg)
+               CSS: .spice-divider block removed; .instrument-divider, .instrument-divider--light,
+               .instrument-divider--dark, .instrument-divider--mid added to styles.css.
+               The old .spice-divider CSS block has been fully replaced.
+
+            BUG FIX 1 — Emoji/symbol mojibake in index.html:
+               Multiple emoji and Unicode symbols were stored as double-encoded UTF-8 mojibake (UTF-8 bytes
+               misread as Windows-1252, then re-encoded). Fixed all instances:
+               🌿 (herb/vegetarian badge, 17 instances) was ðŸŒ¿
+               🍽 (About section placeholder icon, 1 instance) was ðŸ½
+               ♩ (callout banner musical note, 2 instances) was â™©
+               → (newsletter subscribe button arrow, 1 instance) was â†'
+               📍 (contact address pin icon, 1 instance) was ðŸ"
+               📸 (contact Instagram camera icon, 1 instance) was ðŸ"¸
+               🌐 (contact website globe icon, 1 instance) was ðŸŒ
+               ✉️ (contact events email envelope, 1 instance) was âœ‰ï¸
+
+            BUG FIX 2 — Diamond bullet mojibake in styles.css:
+               .event-features li::before { content: 'â—†' } was rendering mojibake instead of ◆ (U+25C6).
+               The CSS content property value was double-encoded. Fixed to correct Unicode character.
+
 2026-06-16e: Two bug fixes in index.html:
             1. Nav arrow mojibake: "Menu ›" and "Events ›" nav dropdown arrows were stored as â€º (mojibake
                for U+203A, single right angle quotation mark). Fixed.

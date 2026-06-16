@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    TAAL Indian Kitchen & Bar â€” Main Stylesheet
    ============================================================ */
 
@@ -1088,7 +1088,7 @@ section { position: relative; }
 }
 
 .event-features li::before {
-  content: 'â—†';
+  content: '◆';
   color: var(--gold);
   font-size: 0.4rem;
   flex-shrink: 0;
@@ -1907,38 +1907,49 @@ section { position: relative; }
 }
 
 
-/* ── ANIMATED SPICE DIVIDERS ── */
-.spice-divider {
-  background: var(--cream);
-  padding: 2.5rem 0;
+/* ── INSTRUMENT LINE DIVIDERS ── */
+.instrument-divider {
+  padding: 1.25rem 0;
   overflow: hidden;
 }
-.spice-divider-inner {
+.instrument-divider-inner {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  max-width: 480px;
+  gap: 1.5rem;
+  max-width: 680px;
   margin: 0 auto;
+  padding: 0 2.5rem;
 }
-.spice-icon {
-  width: 44px;
-  height: 44px;
-  flex-shrink: 0;
-  animation: spice-float 4s ease-in-out infinite;
-}
-.spice-icon.spice-saffron { animation-delay: 0.8s; }
-.spice-icon.spice-lotus   { animation-delay: 1.6s; }
-.spice-divider-line {
+.instrument-line {
   flex: 1;
   height: 1px;
+}
+.instrument-icon {
+  flex-shrink: 0;
+  display: block;
+}
+.instrument-divider--light {
+  background: var(--off-white);
+}
+.instrument-divider--light .instrument-line {
+  background: linear-gradient(90deg, transparent, rgba(10,43,30,0.2), transparent);
+}
+.instrument-divider--dark {
+  background: var(--green-dark);
+}
+.instrument-divider--dark .instrument-line {
+  background: linear-gradient(90deg, transparent, rgba(201,162,39,0.35), transparent);
+}
+.instrument-divider--mid {
+  background: var(--green-mid);
+}
+.instrument-divider--mid .instrument-line {
   background: linear-gradient(90deg, transparent, rgba(201,162,39,0.3), transparent);
 }
-@keyframes spice-float {
-  0%, 100% { transform: translateY(0); opacity: 0.6; }
-  50%       { transform: translateY(-5px); opacity: 1; }
+@media (max-width: 640px) {
+  .instrument-divider { padding: 1rem 0; }
+  .instrument-divider-inner { gap: 1rem; padding: 0 1.25rem; }
 }
-[data-theme="light"] .spice-divider { background: var(--off-white); }
 
 
 /* ── MENU TAB PHOTO BACKGROUNDS ── */
