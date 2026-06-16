@@ -1,4 +1,4 @@
-TAAL INDIAN KITCHEN & BAR — Website Documentation
+﻿TAAL INDIAN KITCHEN & BAR â€” Website Documentation
 ===================================================
 Last updated: 2026-06-15
 
@@ -13,15 +13,15 @@ Branding/           Logo images and hero video (see below)
 
 BRANDING ASSETS
 ---------------
-Branding/PHOTO-2026-06-15-16-35-54.jpg    Primary logo (dark green bg) — used in hero
-Branding/PHOTO-2026-06-15-16-35-54_1.jpg  Brand sheet — reference only
+Branding/PHOTO-2026-06-15-16-35-54.jpg    Primary logo (dark green bg) â€” used in hero
+Branding/PHOTO-2026-06-15-16-35-54_1.jpg  Brand sheet â€” reference only
 Branding/PHOTO-2026-06-15-16-35-54_2.jpg  Coming-soon flyer (used as video poster)
-Branding/PHOTO-2026-06-15-16-35-54_3.jpg  Coming-soon flyer v2 — used in footer
-Branding/PHOTO-2026-06-15-16-35-54_4.jpg  Circle logo (white bg) — reference
-Branding/VIDEO-2026-06-15-16-35-54.mp4    Hero video — autoplay muted loop
+Branding/PHOTO-2026-06-15-16-35-54_3.jpg  Coming-soon flyer v2 â€” used in footer
+Branding/PHOTO-2026-06-15-16-35-54_4.jpg  Circle logo (white bg) â€” reference
+Branding/VIDEO-2026-06-15-16-35-54.mp4    Hero video â€” autoplay muted loop
 
 PLACEHOLDER: assets/audio/ambient-sitar.mp3
-  → Add real ambient tabla/sitar MP3 here. Audio toggle in nav is wired up and ready.
+  â†’ Add real ambient tabla/sitar MP3 here. Audio toggle in nav is wired up and ready.
 
 FEATURES IMPLEMENTED
 ---------------------
@@ -46,14 +46,14 @@ HERO SECTION
   - Gold divider with diamond separator
   - Italic tagline: "Inspired by tradition. Crafted for today."
   - Two CTAs: "Reserve Your Table" (gold) and "Explore the Menu" (outline)
-  - Animated peacock feather SVG — left side, floating animation
+  - Animated peacock feather SVG â€” left side, floating animation
   - Scroll indicator with animated bar
   - Parallax: hero video translates on scroll (30% rate)
   - All hero elements have staggered CSS entrance animations
 
 AMBIENT AUDIO
   - Toggle button in nav (speaker icon)
-  - Plays/pauses assets/audio/ambient-sitar.mp3 (placeholder path — add file)
+  - Plays/pauses assets/audio/ambient-sitar.mp3 (placeholder path â€” add file)
   - Active state: ring pulse animation on button
   - Nav logo SVG sound wave bars animate when audio is playing
   - Handles autoplay blocked gracefully (no console errors)
@@ -84,13 +84,13 @@ MENU SECTION
   - Animated menu item entrance (Intersection Observer stagger)
   - Mobile: tap menu item to expand/collapse description
   - Spice level indicators: SVG flame icons (not emoji peppers)
-  - Dietary badges: 🌿 Vegetarian, V Vegan, GF Gluten-Free
+  - Dietary badges: ðŸŒ¿ Vegetarian, V Vegan, GF Gluten-Free
   - Food photo placeholder boxes (easy to replace with real images)
   - Compact layout for sides, cocktails, beer & wine
   - Seasonal note + dietary key at bottom
   - Nav desktop dropdown and mobile sub-links include all 7 tabs
 
-MENU CONTENT (placeholder — replace when real menu is ready)
+MENU CONTENT (placeholder â€” replace when real menu is ready)
   Dinner:     Chef's Specials (3 items: Tasting Menu $95, Weekend Special $68, Seasonal Thali $38),
               Small Plates (4), Mains (4), Breads & Sides (3)
   Lunch:      Lunch Specials (3 items: Daily Biryani Special $19, Lunch Tasting $42, Market Sabzi $17),
@@ -169,22 +169,22 @@ DESIGN SYSTEM
 ANIMATIONS
   - CSS keyframes: fadeIn, fadeUp, fadeLeft, fadeRight, scaleIn, logoReveal
   - featherFloat: peacock feather gentle sway
-  - waveBar1–5: sound wave bar bounce (loader + audio-playing logo)
+  - waveBar1â€“5: sound wave bar bounce (loader + audio-playing logo)
   - scrollPulse: hero scroll indicator
   - pulseRing: audio toggle active state ring
   - drawLine: footer SVG wave entrance
   - Page loader: animated wave bars + logo fade
   - Scroll reveal: IntersectionObserver drives .reveal-up / .reveal-left / .reveal-right
-  - Stagger utility: .stagger class delays children 0–500ms
+  - Stagger utility: .stagger class delays children 0â€“500ms
 
 RESPONSIVE
-  - Breakpoint 1100px: events grid → single column, footer → 2 columns
-  - Breakpoint 900px: about → single column, nav → hamburger only, footer → single column
-  - Breakpoint 640px: hero CTA → stacked, menu items → single column, gallery → single column
+  - Breakpoint 1100px: events grid â†’ single column, footer â†’ 2 columns
+  - Breakpoint 900px: about â†’ single column, nav â†’ hamburger only, footer â†’ single column
+  - Breakpoint 640px: hero CTA â†’ stacked, menu items â†’ single column, gallery â†’ single column
 
 CHANGES LOG
 ------------
-2026-06-15m: Major feature batch — 20 features added from the Website Ideas list:
+2026-06-15m: Major feature batch â€” 20 features added from the Website Ideas list:
             1. Dark/Light Mode Toggle: moon/sun icon button added to nav. Defaults to dark. Preference saved in localStorage. Light mode inverts hero, nav, menu, events, and reservations section backgrounds to cream/off-white while keeping footer dark. CSS [data-theme="light"] overrides.
             2. Back-to-Top Button: floating gold circle button bottom-right, appears after 400px scroll, smooth scrolls to top.
             3. Google Maps embed: replaced SVG map placeholder in contact section with a real Google Maps iframe (maps.google.com embed URL for 310 W Franklin St).
@@ -193,25 +193,25 @@ CHANGES LOG
             6. Taal Meaning Section: new dark green section (#taal-meaning) after About explaining "taal" as the rhythmic cycle in Indian classical music. Decorative circular tabla SVG.
             7. Ingredient Spotlight: new cream section (#ingredient-spotlight) after Taal Meaning. Auto-rotating 5s carousel across Cardamom, Saffron, and Tamarind with SVG icons, origin notes, and how TAAL uses each.
             8. Cocktail Spotlight: new dark green section (#cocktail-spotlight) after Menu. Features The Peacock ($18) and Rhythm of Rosewater ($16) with photo placeholders and pairing suggestions.
-            9. Happy Hour Banner: slim banner (#happy-hour) after Cocktail Spotlight — "Tuesday–Friday 5–7 PM · 20% off cocktails & wine."
+            9. Happy Hour Banner: slim banner (#happy-hour) after Cocktail Spotlight â€” "Tuesdayâ€“Friday 5â€“7 PM Â· 20% off cocktails & wine."
             10. Chef Bio Section: new cream section (#chef) with placeholder portrait, bio for Chef Arjun Mehta, Great Vibes cursive signature.
             11. Press & Awards Section: new cream section (#press) after Gallery. Five press logo placeholder badges + auto-rotating 4s quote carousel with dots navigation.
             12. Testimonials Section: new cream section (#testimonials) after Press. Five guest quotes in auto-rotating 4.5s carousel with dot navigation.
-            13. Instagram Feed Section: new section (#instagram) after Testimonials. 3×2 grid of placeholder tiles with Instagram SVG icons. Integration comment for Elfsight/SnapWidget.
+            13. Instagram Feed Section: new section (#instagram) after Testimonials. 3Ã—2 grid of placeholder tiles with Instagram SVG icons. Integration comment for Elfsight/SnapWidget.
             14. Inline Event Inquiry Forms: replaced "Enquire Now / Plan Your Event / Get a Quote" anchor links on all 3 event cards with toggle buttons that expand tailored inline mini-forms. Each form submits with the same 1.2s simulated success state.
             15. Allergen Info Toggles: added collapsible allergen tag lists below 13 specific menu items (Paneer Tikka, Lamb Seekh Kebab, Heirloom Beet Chaat, Scallop Amritsari, Raan-e-TAAL, Shahi Paneer Royale, Wild Salmon Malabar, Dal TAAL, 5 Biryanis, 3 Desserts).
-            16. Drink Pairings: added "Pairs with →" callouts (gold, subtle) to 6 menu items linking to their cocktail match (Paneer Tikka→Rhythm of Rosewater, Lamb Seekh→Saffron Negroni, Raan-e-TAAL→Mango Taal, Shahi Paneer→Rose & Pistachio Lassi, Hyderabadi Biryani→Masala Mule, Gosht Biryani→Saffron Negroni).
+            16. Drink Pairings: added "Pairs with â†’" callouts (gold, subtle) to 6 menu items linking to their cocktail match (Paneer Tikkaâ†’Rhythm of Rosewater, Lamb Seekhâ†’Saffron Negroni, Raan-e-TAALâ†’Mango Taal, Shahi Paneerâ†’Rose & Pistachio Lassi, Hyderabadi Biryaniâ†’Masala Mule, Gosht Biryaniâ†’Saffron Negroni).
             17. Active Menu Tab Background: active .menu-tab now has a subtle gold gradient background in addition to the gold border.
             18. Newsletter Mailchimp Structure: updated footer newsletter form to standard Mailchimp POST action format with NAME field and honeypot. XXXX placeholders for list/user IDs.
             19. 404.html: created branded error page with large "404" in gold Cinzel, "The table you're looking for doesn't exist." in Cormorant italic, and a Return to Home button.
             20. Live Chat Widget: Tidio integration comment added before </body> in index.html.
             Also added: Chef and FAQ to desktop nav links and mobile nav menu.
 
-2026-06-15i: Comprehensive mobile responsiveness pass (375–640px):
+2026-06-15i: Comprehensive mobile responsiveness pass (375â€“640px):
             Container & nav padding reduced to 1.25rem on mobile.
             Section vertical padding reduced from 7rem to 4rem on mobile.
-            Menu tabs switch to horizontal-scroll single row (no wrap) with hidden scrollbar — all 10 tabs accessible by swiping.
-            Nav hamburger and audio toggle enlarged to 44×44px touch targets.
+            Menu tabs switch to horizontal-scroll single row (no wrap) with hidden scrollbar â€” all 10 tabs accessible by swiping.
+            Nav hamburger and audio toggle enlarged to 44Ã—44px touch targets.
             Filter buttons min-height 36px. Form inputs font-size 1rem (prevents iOS auto-zoom on focus).
             Form labels increased to 0.75rem for readability. Form inputs padding increased to 0.85rem.
             Newsletter form stacks vertically on mobile.
@@ -242,14 +242,14 @@ CHANGES LOG
             Dinner tab: added Chef's Specials category at top (Tasting Menu $95, Weekend Special $68, Seasonal Vegetable Thali $38).
             Lunch tab: added Lunch Specials category at top (Daily Biryani Special $19, Lunch Tasting $42, Market Sabzi Special $17).
             Biryanis tab: 6 biryanis + Accompaniments sub-section.
-            Beverages tab: 4 categories — Indian Teas & Coffees, Fresh Pressed & Coolers, Lassi Bar, Still & Sparkling.
+            Beverages tab: 4 categories â€” Indian Teas & Coffees, Fresh Pressed & Coolers, Lassi Bar, Still & Sparkling.
             Updated desktop nav dropdown and mobile sub-links to include Biryanis and Beverages.
 2026-06-15c: Removed video from page loader entirely. Loader is now dark green bg with animated wave bars + TAAL wordmark only.
             Loader dismiss timing reverted to 400ms after window load.
             Added favicon: Branding/PHOTO-2026-06-15-16-35-54.jpg (also set as apple-touch-icon).
-            Hero logo image uses mix-blend-mode:screen — dark green box background disappears into gradient, gold logo floats cleanly.
+            Hero logo image uses mix-blend-mode:screen â€” dark green box background disappears into gradient, gold logo floats cleanly.
 2026-06-15: Moved hero video from blurry background to page loader animation.
-            Hero now uses a dark green CSS gradient background (#061711 → #0A2B1E → #0d3525).
+            Hero now uses a dark green CSS gradient background (#061711 â†’ #0A2B1E â†’ #0d3525).
             Loader plays video fullscreen with dark overlay + TAAL wordmark + wave bars on top.
             Loader stays visible for minimum 3.5 seconds so video has time to show.
             Removed hero parallax (no longer relevant without video element).

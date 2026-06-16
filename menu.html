@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu — TAAL Indian Kitchen &amp; Bar</title>
+  <link rel="icon" href="Branding/PHOTO-2026-06-15-16-35-54.jpg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-dark:  #0A2B1E;
+      --green-mid:   #0F3D2B;
+      --green-light: #1A5C3A;
+      --gold:        #C9A227;
+      --gold-light:  #E8C96A;
+      --cream:       #F8F3E8;
+      --cream-dark:  #EDE4CD;
+      --muted:       #7A6845;
+      --muted-light: #B5A07A;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--cream);
+      color: var(--green-dark);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    .qr-header {
+      background: var(--green-dark);
+      text-align: center;
+      padding: 3rem 2rem 2.5rem;
+    }
+    .qr-brand {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      margin-bottom: 0.25rem;
+    }
+    .qr-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: rgba(248,243,232,0.5);
+      letter-spacing: 0.08em;
+      margin-bottom: 1.75rem;
+    }
+    .qr-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1.25rem auto 0;
+      max-width: 240px;
+    }
+    .qr-divider span:first-child,
+    .qr-divider span:last-child {
+      display: block;
+      flex: 1;
+      height: 1px;
+      background: rgba(201,162,39,0.3);
+    }
+    .qr-divider em {
+      color: var(--gold);
+      font-style: normal;
+      font-size: 0.5rem;
+    }
+
+    /* ── QR CODE BOX ── */
+    .qr-box {
+      background: var(--cream);
+      max-width: 360px;
+      margin: 3rem auto;
+      padding: 2.5rem;
+      text-align: center;
+      border: 1px solid var(--cream-dark);
+      box-shadow: 0 4px 32px rgba(10,43,30,0.08);
+    }
+    .qr-label {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .qr-code-wrap {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 1.5rem;
+      background: white;
+      border: 8px solid var(--green-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    /* Placeholder QR pattern using CSS */
+    .qr-placeholder {
+      width: 160px;
+      height: 160px;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 2px;
+    }
+    .qr-placeholder .qr-cell { background: var(--green-dark); border-radius: 1px; }
+    .qr-placeholder .qr-cell.empty { background: transparent; }
+
+    /* Three corner squares */
+    .qr-corner {
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      border: 5px solid var(--green-dark);
+    }
+    .qr-corner-tl { top: 8px; left: 8px; }
+    .qr-corner-tr { top: 8px; right: 8px; }
+    .qr-corner-bl { bottom: 8px; left: 8px; }
+
+    .qr-code-inner {
+      width: 140px;
+      height: 140px;
+      background: repeating-conic-gradient(var(--green-dark) 0% 25%, white 0% 50%) 0 0 / 14px 14px;
+      opacity: 0.85;
+    }
+    .qr-note {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+    .qr-url {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── PRINT INSTRUCTIONS ── */
+    .print-section {
+      max-width: 360px;
+      margin: 0 auto 3rem;
+      padding: 0 2rem;
+    }
+    .print-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--green-dark);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .print-steps {
+      list-style: none;
+      counter-reset: steps;
+    }
+    .print-steps li {
+      counter-increment: steps;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .print-steps li::before {
+      content: counter(steps);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      background: var(--green-dark);
+      color: var(--gold);
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .btn-print {
+      display: block;
+      width: 100%;
+      padding: 0.9rem 1.5rem;
+      background: var(--gold);
+      color: var(--green-dark);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      margin-top: 1.5rem;
+      text-decoration: none;
+    }
+    .btn-print:hover { background: var(--gold-light); }
+
+    /* ── FOOTER ── */
+    .qr-footer {
+      background: var(--green-dark);
+      text-align: center;
+      padding: 1.5rem;
+    }
+    .qr-footer p {
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(201,162,39,0.35);
+    }
+
+    /* ── PRINT STYLES ── */
+    @media print {
+      .print-section { display: none; }
+      .qr-header { padding: 2rem; }
+      .qr-box { box-shadow: none; border: 1px solid #ccc; margin: 1.5rem auto; }
+      .qr-footer { display: none; }
+      body { background: white; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="qr-header">
+    <h1 class="qr-brand">TAAL</h1>
+    <p class="qr-sub">Indian Kitchen &amp; Bar · Chapel Hill</p>
+    <div class="qr-divider"><span></span><em>◆</em><span></span></div>
+  </header>
+
+  <main>
+    <div class="qr-box">
+      <p class="qr-label">Scan to View Full Menu</p>
+
+      <!-- QR code placeholder — replace with generated QR image pointing to taaldining.com/#menu -->
+      <div class="qr-code-wrap">
+        <div class="qr-corner qr-corner-tl"></div>
+        <div class="qr-corner qr-corner-tr"></div>
+        <div class="qr-corner qr-corner-bl"></div>
+        <div class="qr-code-inner" role="img" aria-label="QR code linking to taaldining.com"></div>
+      </div>
+
+      <p class="qr-note">Point your camera at this code to explore our full menu — cocktails, mains, biryanis &amp; more.</p>
+      <p class="qr-url">taaldining.com</p>
+    </div>
+
+    <div class="print-section">
+      <h2 class="print-title">How to Use This Page</h2>
+      <ol class="print-steps">
+        <li>Replace the QR code placeholder above with a real QR image. Generate one free at qr-code-generator.com pointing to <strong>taaldining.com/#menu</strong>.</li>
+        <li>Print this page at Letter size. The print stylesheet hides instructions automatically.</li>
+        <li>Laminate or place in a table tent holder for durability. One per table.</li>
+        <li>Guests scan the code and instantly see the live menu — any price or item update on the site is reflected immediately, with no reprint needed.</li>
+      </ol>
+      <button class="btn-print" onclick="window.print()">Print This Page</button>
+      <a href="index.html" class="btn-print" style="margin-top:0.75rem;background:transparent;border:1px solid rgba(10,43,30,0.2);color:var(--muted);">← Back to Website</a>
+    </div>
+  </main>
+
+  <footer class="qr-footer">
+    <p>310 W Franklin St · Chapel Hill, NC 27516 · taaldining.com</p>
+  </footer>
+
+</body>
+</html>
