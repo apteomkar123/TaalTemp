@@ -157,14 +157,18 @@ ACCESSIBILITY
 
 DESIGN SYSTEM
   Fonts: Cinzel (display), Cormorant Garamond (headings/body), Great Vibes (cursive accents), Montserrat (UI/nav), Lato (body text)
-  Colors:
-    --green-dark:  #0A2B1E  (primary bg)
-    --green-mid:   #0F3D2B  (events section bg)
-    --gold:        #C9A227  (primary accent)
+  Colors (rebuilt 2026-06-16 from actual restaurant interior photos):
+    --green-dark:  #1E2416  (near-black charcoal-olive — walls, nav, section bgs)
+    --green-mid:   #2B3A1C  (dark olive — events bg)
+    --green-light: #3B4E28  (olive green — wainscoting / callout accent)
+    --cognac:      #8B4520  (leather booth brown — new)
+    --copper:      #A86030  (pendant light bronze — new)
+    --gold:        #C9A227  (primary accent — unchanged)
     --gold-light:  #E8C96A  (hover / light gold)
-    --cream:       #F8F3E8  (light text / bg)
-    --off-white:   #FAF7F2  (light section bg)
-    --dark:        #120800  (footer bg)
+    --cream:       #F6EDD8  (warmer parchment — mural background tone)
+    --cream-dark:  #E5D5B0  (deeper parchment)
+    --off-white:   #FAF6EE  (light section bg)
+    --dark:        #0F0E08  (near-black warm — footer)
 
 ANIMATIONS
   - CSS keyframes: fadeIn, fadeUp, fadeLeft, fadeRight, scaleIn, logoReveal
@@ -184,6 +188,19 @@ RESPONSIVE
 
 CHANGES LOG
 ------------
+2026-06-16i: Color scheme rebuilt from actual restaurant interior photos (Interior/ folder, 5 images).
+            Analysis: the actual space uses deep olive/army green wainscoting panels, near-black charcoal
+            textured wall tiles, cognac leather booth seating, warm walnut wood tables, and copper pendant
+            lights — far from the previous jewel-tone deep forest greens.
+            Changes made:
+              css/styles.css :root — all green variables shifted from jewel-tone (#0A2B1E/#0F3D2B/#1A5C3A)
+                to earthy charcoal-olive tones (#1E2416/#2B3A1C/#3B4E28). Cream variables warmed to
+                parchment (#F6EDD8/#E5D5B0). Dark base updated (#0F0E08). Two new variables added:
+                --cognac (#8B4520, leather booths) and --copper (#A86030, pendant lights).
+              css/styles.css hardcoded — hero gradient, parallax bands, mobile CTA bar, instrument
+                divider, and light-mode rgba overrides all updated to new olive-charcoal values.
+              css/animations.css — gallery hover overlay rgba updated to match.
+
 2026-06-16h: Three bug fixes:
 
             BUG FIX 1 — Menu dot indicators too close to dietary filters on mobile:
@@ -408,6 +425,11 @@ CHANGES LOG
             1. Ambient audio volume reduced to 30% (audio.volume = 0.3) so the sitar background is subtle.
             2. Scroll indicator still overlapping buttons: reduced hero logo from clamp(220px,36vw,400px) to clamp(180px,28vw,340px), increased hero min-height from 620px to 700px, and increased scroll indicator margin-top to 3rem. This ensures hero-content always fits within the hero viewport without overflow, keeping the scroll indicator visually clear of both CTA buttons.
             3. Animation lag on mobile: disabled featherFloat on mobile (just fadeIn), disabled scrollPulse on mobile (static bar), stopped wave-bar animations on mobile (8 concurrent animations), removed filter:blur from logoReveal on mobile (blur is GPU-expensive), shortened scroll-reveal transitions to 0.45s on mobile, added will-change hints to continuously looping elements.
+2026-06-16b: Removed all menu items across all 10 tabs (Dinner, Lunch, Small Plates, Mains, Sides & Breads,
+            Biryanis, Cocktails, Beverages, Beer & Wine, Desserts). All category headings, subtitles, and
+            .menu-items containers are preserved. Each .menu-items div now contains only a placeholder comment:
+            <!-- Menu items placeholder — add items here -->
+            File: index.html (all menu-panel sections)
 2026-06-16a: Fixed "Request Reservation" button not centered in the reservation card on mobile.
             Root cause: the 900px mobile media query sets max-width: 260px on all .btn-primary elements, which
             constrained the button and left it left-aligned (block elements default to left). Added

@@ -5,16 +5,19 @@
 /* 1. VARIABLES
    ============================================================ */
 :root {
-  --green-dark:  #0A2B1E;
-  --green-mid:   #0F3D2B;
-  --green-light: #1A5C3A;
+  /* Olive/charcoal palette drawn from the actual restaurant interior */
+  --green-dark:  #1E2416;  /* near-black charcoal-olive — walls, nav, section bgs */
+  --green-mid:   #2B3A1C;  /* dark olive — events, mid-tone sections             */
+  --green-light: #3B4E28;  /* olive green — wainscoting / callout accent          */
+  --cognac:      #8B4520;  /* leather booth brown                                 */
+  --copper:      #A86030;  /* pendant light bronze                                */
   --gold:        #C9A227;
   --gold-light:  #E8C96A;
   --gold-pale:   #F5E6B8;
-  --cream:       #F8F3E8;
-  --cream-dark:  #EDE4CD;
-  --off-white:   #FAF7F2;
-  --dark:        #120800;
+  --cream:       #F6EDD8;  /* warmer parchment — mural background tone            */
+  --cream-dark:  #E5D5B0;  /* deeper parchment                                    */
+  --off-white:   #FAF6EE;
+  --dark:        #0F0E08;  /* near-black warm — footer                            */
   --muted:       #7A6845;
   --muted-light: #B5A07A;
 
@@ -472,10 +475,10 @@ section { position: relative; }
   overflow: hidden;
   background: linear-gradient(
     160deg,
-    #061711 0%,
-    #0A2B1E 35%,
-    #0d3525 65%,
-    #081b12 100%
+    #0C0D09 0%,
+    #1E2416 35%,
+    #222D17 65%,
+    #0A0B07 100%
   );
 }
 
@@ -1677,14 +1680,14 @@ section { position: relative; }
 }
 [data-theme="light"] body { background: var(--off-white); }
 [data-theme="light"] .hero {
-  background: linear-gradient(160deg, #EDE4CD 0%, #F8F3E8 40%, #EDE4CD 100%);
+  background: linear-gradient(160deg, #E5D5B0 0%, #F6EDD8 40%, #E5D5B0 100%);
 }
 [data-theme="light"] .hero .hero-neighborhood { color: var(--muted); }
 [data-theme="light"] .hero .hero-tagline em { color: var(--green-dark); }
 [data-theme="light"] .hero .scroll-text { color: var(--muted); }
 [data-theme="light"] .hero-logo-img { mix-blend-mode: normal; }
-[data-theme="light"] .btn-secondary { color: var(--green-dark); border-color: rgba(10,43,30,0.4); }
-[data-theme="light"] .btn-secondary:hover { background: rgba(10,43,30,0.08); border-color: var(--gold); color: var(--gold); }
+[data-theme="light"] .btn-secondary { color: var(--green-dark); border-color: rgba(30,36,22,0.4); }
+[data-theme="light"] .btn-secondary:hover { background: rgba(30,36,22,0.08); border-color: var(--gold); color: var(--gold); }
 [data-theme="light"] .callout-banner { background: var(--green-light); }
 [data-theme="light"] .menu-section { background: var(--off-white); }
 [data-theme="light"] .menu-section .section-title.light { color: var(--green-dark); }
@@ -1714,14 +1717,14 @@ section { position: relative; }
 [data-theme="light"] .taal-meaning-title { color: var(--green-dark); }
 [data-theme="light"] .taal-meaning-text,
 [data-theme="light"] .taal-meaning-footnote { color: var(--muted); }
-[data-theme="light"] .nav.transparent { background: rgba(248,243,232,0.96); backdrop-filter: blur(8px); }
+[data-theme="light"] .nav.transparent { background: rgba(246,237,216,0.96); backdrop-filter: blur(8px); }
 [data-theme="light"] .nav.transparent .nav-link { color: var(--green-dark); }
-[data-theme="light"] .nav.transparent .nav-logo-sub { color: rgba(10,43,30,0.55); }
+[data-theme="light"] .nav.transparent .nav-logo-sub { color: rgba(30,36,22,0.55); }
 [data-theme="light"] .nav.scrolled { background: var(--cream); box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
 [data-theme="light"] .nav.scrolled .nav-link { color: var(--green-dark); }
 [data-theme="light"] .nav-hamburger span { background: var(--green-dark); }
 [data-theme="light"] .nav-mobile { background: var(--cream); }
-[data-theme="light"] .mobile-link { color: var(--green-dark); border-bottom-color: rgba(10,43,30,0.1); }
+[data-theme="light"] .mobile-link { color: var(--green-dark); border-bottom-color: rgba(30,36,22,0.1); }
 [data-theme="light"] .mobile-reserve { color: var(--gold) !important; }
 
 
@@ -1855,7 +1858,7 @@ section { position: relative; }
   position: absolute;
   top: -20%;
   background:
-    linear-gradient(135deg, rgba(10,43,30,0.72) 0%, rgba(10,43,30,0.45) 50%, rgba(10,43,30,0.72) 100%),
+    linear-gradient(135deg, rgba(30,36,22,0.75) 0%, rgba(30,36,22,0.48) 50%, rgba(30,36,22,0.75) 100%),
     repeating-linear-gradient(
       45deg,
       rgba(201,162,39,0.04) 0px,
@@ -1863,13 +1866,13 @@ section { position: relative; }
       transparent 1px,
       transparent 40px
     ),
-    linear-gradient(160deg, #0A2B1E 0%, #1A5C3A 40%, #0F3D2B 70%, #0A2B1E 100%);
+    linear-gradient(160deg, #1E2416 0%, #3B4E28 40%, #2B3A1C 70%, #1E2416 100%);
   background-attachment: fixed;
   will-change: transform;
 }
 .parallax-inner--alt {
   background:
-    linear-gradient(135deg, rgba(10,43,30,0.65) 0%, rgba(26,92,58,0.4) 50%, rgba(10,43,30,0.65) 100%),
+    linear-gradient(135deg, rgba(30,36,22,0.68) 0%, rgba(59,78,40,0.42) 50%, rgba(30,36,22,0.68) 100%),
     repeating-linear-gradient(
       -45deg,
       rgba(201,162,39,0.035) 0px,
@@ -1877,13 +1880,13 @@ section { position: relative; }
       transparent 1px,
       transparent 55px
     ),
-    linear-gradient(160deg, #0F3D2B 0%, #0A2B1E 40%, #1A5C3A 70%, #0F3D2B 100%);
+    linear-gradient(160deg, #2B3A1C 0%, #1E2416 40%, #3B4E28 70%, #2B3A1C 100%);
   background-attachment: fixed;
 }
 .parallax-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, transparent 30%, rgba(10,43,30,0.5) 100%);
+  background: radial-gradient(ellipse at center, transparent 30%, rgba(30,36,22,0.5) 100%);
 }
 .parallax-caption {
   position: absolute;
@@ -1933,7 +1936,7 @@ section { position: relative; }
   background: var(--off-white);
 }
 .instrument-divider--light .instrument-line {
-  background: linear-gradient(90deg, transparent, rgba(10,43,30,0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(30,36,22,0.2), transparent);
 }
 .instrument-divider--dark {
   background: var(--green-dark);
@@ -1992,7 +1995,7 @@ section { position: relative; }
     left: 0;
     right: 0;
     z-index: 950;
-    background: rgba(10, 43, 30, 0.97);
+    background: rgba(30, 36, 22, 0.97);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-top: 1px solid rgba(201, 162, 39, 0.25);

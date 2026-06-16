@@ -1,0 +1,17 @@
+{
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+
+    "homepage": "https://apteomkar123.github.io/taal-dining",
+"scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
+}
+  }
+
+
+
+  
+}
+
+
