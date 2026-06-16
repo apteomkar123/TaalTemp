@@ -376,6 +376,8 @@ section { position: relative; }
   justify-content: center;
   width: 36px;
   height: 36px;
+  flex-shrink: 0;
+  margin-left: 1rem;
   color: var(--gold);
   border: 1px solid rgba(201, 162, 39, 0.3);
   border-radius: 50%;
@@ -420,7 +422,12 @@ section { position: relative; }
   border-top: 1px solid rgba(201, 162, 39, 0.2);
 }
 
-.nav-mobile.open { display: block; }
+.nav-mobile.open {
+  display: block;
+  max-height: calc(100vh - var(--nav-h));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
 
 .mobile-links { padding: 0 2rem; }
 
@@ -574,7 +581,7 @@ section { position: relative; }
   bottom: 2.5rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1557,8 +1564,7 @@ section { position: relative; }
   .about-images { display: none; }
   .reservations-inner { grid-template-columns: 1fr; gap: 3rem; }
   .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .nav-links { display: none; }
-  .nav-cta .btn-reserve { display: none; }
+  .nav-links, .nav-cta { display: none; }
   .nav-hamburger { display: flex; }
   .gallery-grid { grid-template-columns: 1fr 1fr; }
   .gallery-item-wide { grid-column: span 1; }
