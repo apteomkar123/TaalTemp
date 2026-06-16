@@ -194,6 +194,9 @@ CHANGES LOG
             Newsletter form stacks vertically on mobile.
             Hero peacock feather hidden on mobile (declutter). Events grid full-width on mobile.
             Footer top padding reduced. All existing 640px/900px/1100px breakpoints preserved.
+2026-06-15k: Two remaining mobile/hero bug fixes (second attempt with correct root causes):
+            1. Nav drawer still scrolled background on iOS: replaced document.body.style.overflow='hidden' (which iOS ignores) with the position-fixed body-freeze technique: saves scrollY, sets body to position:fixed+top:-scrollY+width:100% on open, restores on close. Also added overscroll-behavior:contain to .nav-mobile.open CSS.
+            2. Scroll animation overlapping "Explore the Menu" button (both desktop+mobile): root cause was that .btn-secondary has background:transparent, so the absolutely-positioned gold scroll line at left:50% showed through the button at all z-index levels. Fix: moved .hero-scroll div from being a sibling of .hero-content (absolutely positioned at bottom:2.5rem) to being the last child inside .hero-content (normal document flow, after the CTA). Changed CSS from position:absolute to margin-top:2.5rem + pointer-events:none. Now the scroll indicator is always visually below the buttons, guaranteed by DOM order.
 2026-06-15j: Three mobile bug fixes:
             1. Audio mute button definitively fixed on mobile: moved the audio toggle button out of .nav-cta in HTML so it is a direct sibling in .nav-container. .nav-cta (reserve button) can now be hidden at 900px as before without affecting the audio toggle. Added margin-left and flex-shrink:0 to .audio-toggle so desktop spacing is preserved.
             2. Mobile nav scroll bleed fixed: added max-height: calc(100vh - nav-height) and overflow-y: auto to .nav-mobile.open so the menu scrolls within itself instead of letting touch events reach the background page.
