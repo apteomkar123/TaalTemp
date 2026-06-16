@@ -13,15 +13,14 @@ Branding/           Logo images and hero video (see below)
 
 BRANDING ASSETS
 ---------------
-Branding/PHOTO-2026-06-15-16-35-54.jpg    Primary logo (dark green bg) — used in hero
+Branding/white taal logo no bg.png         Primary logo (transparent PNG, circular) — used in hero with mix-blend-mode: multiply
+Branding/PHOTO-2026-06-15-16-35-54.jpg    Original logo (dark green bg JPEG) — no longer used in hero, kept for reference
 Branding/PHOTO-2026-06-15-16-35-54_1.jpg  Brand sheet — reference only
 Branding/PHOTO-2026-06-15-16-35-54_2.jpg  Coming-soon flyer (used as video poster)
 Branding/PHOTO-2026-06-15-16-35-54_3.jpg  Coming-soon flyer v2 — used in footer
 Branding/PHOTO-2026-06-15-16-35-54_4.jpg  Circle logo (white bg) — reference
 Branding/VIDEO-2026-06-15-16-35-54.mp4    Hero video — autoplay muted loop
 
-PLACEHOLDER: assets/audio/ambient-sitar.mp3
-  → Add real ambient tabla/sitar MP3 here. Audio toggle in nav is wired up and ready.
 
 FEATURES IMPLEMENTED
 ---------------------
@@ -189,6 +188,35 @@ RESPONSIVE
 
 CHANGES LOG
 ------------
+2026-06-16n: Hero logo swapped from green-background JPEG to transparent PNG.
+            Old: Branding/PHOTO-2026-06-15-16-35-54.jpg (dark green square bg, used with mix-blend-mode: screen)
+            New: Branding/white taal logo no bg.png (circular logo, white bg outside transparent, colored design elements)
+            CSS: .hero-logo-img mix-blend-mode changed to "multiply" so the white circle background
+                 blends into the parchment hero, making the colored TAAL design appear to float on parchment.
+            Updated BRANDING ASSETS reference list in this file accordingly.
+
+2026-06-16m: Contrast/readability fix across the full beige scheme.
+            Root cause: gold (#C9A227) on beige (#EAD9C4) is ~1.78:1 contrast — nearly invisible.
+            --muted-light (#B5A07A) on beige was ~2:1 — unreadable for body text.
+            Fixes:
+              :root — --muted-light darkened from #B5A07A to #8A7050 (~3.3:1 on cream)
+              All gold text on light backgrounds swapped to var(--cognac) (#8B4520, ~6.8:1 on cream):
+                .section-label, .section-label.light, .section-title em
+                .menu-cat-title, .menu-item-price, .event-sub
+                .menu-tab hover/active, .menu-tab::after (underline)
+                .nav-link::after (hover underline), .nav-link:hover
+                .btn-outline (border + text)
+                .filter-btn active/hover, .menu-tab-dot active
+                .mobile-sub a:hover, .mobile-reserve
+              Form labels / reservation labels / widget headers → var(--green-dark):
+                .form-group label, .contact-detail-label, .res-info-label, .widget-header h3
+              Section sub text → var(--muted) instead of --muted-light:
+                .section-sub, .section-sub.light, .menu-cat-sub, .menu-dietary-key,
+                .taal-meaning-footnote
+              .taal-meaning-title → var(--green-dark) (was gold on off-white)
+              .img-placeholder → cream-dark background, green-dark border, --muted text
+              .menu-tab-dot inactive → rgba(30,36,22,0.18) (was near-invisible gold)
+
 2026-06-16l: Removed ambient sitar audio feature and dark/light mode toggle entirely.
             Audio removal: <audio> element, audio toggle button, all audio toggle JS (autoplay,
             volume, updateAudioUI, kinetic logo Web Audio API), audio toggle CSS, pulseRing @keyframes,
