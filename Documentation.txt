@@ -189,6 +189,26 @@ RESPONSIVE
 
 CHANGES LOG
 ------------
+2026-06-16l: Removed ambient sitar audio feature and dark/light mode toggle entirely.
+            Audio removal: <audio> element, audio toggle button, all audio toggle JS (autoplay,
+            volume, updateAudioUI, kinetic logo Web Audio API), audio toggle CSS, pulseRing @keyframes,
+            sound-wave animation rules (.audio-playing .sound-wave-icon), and logoBreath @keyframes
+            (kinetic fallback) all removed from index.html, main.js, styles.css, animations.css.
+            Dark mode removal + full beige scheme: theme toggle button removed from HTML and JS.
+            All [data-theme="light"] overrides removed. All dark sections converted to beige/parchment:
+              Hero: dark gradient → parchment gradient (#D4BA8A / #EAD9C4 / #F2E8D8); mix-blend-mode normal
+              Nav: scrolled background → var(--cream); all link colors → var(--green-dark)
+              Dropdown + mobile nav: background → var(--cream); text → var(--green-dark)
+              Callout banner: var(--green-dark) → var(--green-light) (olive accent strip)
+              Menu section: var(--green-dark) → var(--off-white); all card/tab/filter text updated
+              Events section: var(--green-mid) → var(--cream-dark); card backgrounds → var(--cream)
+              Reservations: var(--green-dark) → var(--cream); form inputs → white with dark text
+              TAAL Meaning: var(--green-dark) → var(--off-white); text updated to dark
+              Instrument dividers: dark/mid variants → var(--cream-dark) with olive line gradients
+              Mobile CTA bar: dark rgba → cream rgba; menu button border/text → green-dark
+              All hardcoded rgba(248,243,232,...) text colors replaced with semantic variables
+            Text is now fully readable: dark olive (--green-dark) or --muted on all light backgrounds.
+
 2026-06-16j: Beige color correction — pushed all light/cream tones to match the actual restaurant beige.
             Previous iteration (#F6EDD8 cream, #FAF6EE off-white) was too pale/cool. Re-analyzed all 5
             Interior/ photos: the booth arch wall niches and room surfaces are a warm sandy beige (#EAD9C4),

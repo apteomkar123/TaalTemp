@@ -90,13 +90,6 @@
   to   { transform: scaleX(1); }
 }
 
-/* Pulse ring (for audio toggle when playing) */
-@keyframes pulseRing {
-  0%   { transform: scale(1); opacity: 0.8; }
-  70%  { transform: scale(1.6); opacity: 0; }
-  100% { transform: scale(1.6); opacity: 0; }
-}
-
 /* Gold dot blink (catering section bullets) */
 @keyframes dotBlink {
   0%, 100% { opacity: 1; }
@@ -234,25 +227,9 @@
 /* 5. NAVIGATION ANIMATIONS
    ============================================================ */
 
-.nav.transparent .nav-link,
-.nav.transparent .nav-logo-name,
-.nav.transparent .nav-logo-sub { color: var(--cream); }
-
+.nav.transparent .nav-link { color: var(--green-dark); }
 .nav.transparent .nav-logo-name { color: var(--gold); }
-
-/* Active audio toggle pulse ring */
-.audio-toggle.playing {
-  position: relative;
-}
-
-.audio-toggle.playing::before {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  border: 1px solid var(--gold);
-  animation: pulseRing 1.5s ease-out infinite;
-}
+.nav.transparent .nav-logo-sub { color: rgba(30,36,22,0.6); }
 
 /* 6. MENU ANIMATIONS
    ============================================================ */
@@ -289,24 +266,7 @@
 
 .menu-tab:hover::before { transform: scaleX(1); }
 
-/* 7. ANIMATED SOUND WAVE (nav logo on page)
-   ============================================================ */
-
-.sound-wave-icon line {
-  transform-origin: bottom center;
-}
-
-/* Animate when audio is playing */
-.audio-playing .sound-wave-icon line:nth-child(1)  { animation: waveBar1 0.8s ease-in-out infinite; }
-.audio-playing .sound-wave-icon line:nth-child(2)  { animation: waveBar2 0.8s ease-in-out 0.06s infinite; }
-.audio-playing .sound-wave-icon line:nth-child(3)  { animation: waveBar3 0.8s ease-in-out 0.12s infinite; }
-.audio-playing .sound-wave-icon line:nth-child(4)  { animation: waveBar4 0.8s ease-in-out 0.18s infinite; }
-.audio-playing .sound-wave-icon line:nth-child(5)  { animation: waveBar5 0.8s ease-in-out 0.24s infinite; }
-.audio-playing .sound-wave-icon line:nth-child(6)  { animation: waveBar1 0.8s ease-in-out 0.30s infinite; }
-.audio-playing .sound-wave-icon line:nth-child(7)  { animation: waveBar3 0.8s ease-in-out 0.15s infinite; }
-.audio-playing .sound-wave-icon line:nth-child(8)  { animation: waveBar2 0.8s ease-in-out 0.09s infinite; }
-
-/* 8. EVENT CARD HOVER
+/* 7. EVENT CARD HOVER
    ============================================================ */
 
 .event-card {
@@ -416,8 +376,7 @@
 /* GPU compositing hints for looping animations */
 .hero-feather,
 .scroll-bar,
-.loader-wave span,
-.audio-toggle.playing::before {
+.loader-wave span {
   will-change: transform, opacity;
 }
 
@@ -433,9 +392,6 @@
 
   /* Static scroll bar instead of pulsing (saves a paint cycle every 2s) */
   .scroll-bar { animation: none; opacity: 0.7; }
-
-  /* Stop wave bar animations on mobile — they run 8 concurrent animations */
-  .audio-playing .sound-wave-icon line { animation: none !important; }
 
   /* Faster hero entrance animations on mobile */
   .hero-logo-wrap    { animation-duration: 0.5s; animation-delay: 0.1s; }
@@ -494,20 +450,7 @@
 .spice-level .flame-icon:nth-child(2) { animation-duration: 1.65s; animation-delay: 0.28s; }
 .spice-level .flame-icon:nth-child(3) { animation-duration: 2.1s;  animation-delay: 0.55s; }
 
-/* 18. KINETIC TAAL LOGO — CSS fallback when audio is off or unavailable
-   ============================================================ */
-
-@keyframes logoBreath {
-  0%, 100% { transform: scale(1); }
-  50%       { transform: scale(1.012); }
-}
-
-.hero-logo-img.kinetic-fallback {
-  animation: logoBreath 3.5s ease-in-out infinite;
-  will-change: transform;
-}
-
-/* 19. MENU SLIDE — Swipeable tab panel transitions
+/* 18. MENU SLIDE — Swipeable tab panel transitions
    ============================================================ */
 
 @keyframes slideFromRight {

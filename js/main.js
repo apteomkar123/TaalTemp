@@ -91,64 +91,6 @@
     });
   });
 
-  /* ── AMBIENT AUDIO TOGGLE
-  ──────────────────────────────────────────────────── */
-  const audio = document.getElementById('ambient-audio');
-  const audioToggle = document.getElementById('audio-toggle');
-  const audioIconOn = document.querySelector('.audio-icon-on');
-  const audioIconOff = document.querySelector('.audio-icon-off');
-  let audioPlaying = true;
-
-  if (audio) audio.volume = 0.12;
-
-  if (audioToggle && audio) {
-    /* Attempt autoplay on load; if blocked, start on first user interaction */
-    window.addEventListener('load', () => {
-      updateAudioUI();
-      audio.play().catch(() => {
-        /* Autoplay blocked — start on first scroll/click/touch instead */
-        let attempted = false;
-        const startOnInteraction = () => {
-          if (attempted || !audioPlaying) return;
-          attempted = true;
-          audio.play().catch(() => {
-            audioPlaying = false;
-            updateAudioUI();
-          });
-        };
-        ['click', 'scroll', 'touchstart', 'keydown'].forEach(evt => {
-          document.addEventListener(evt, startOnInteraction, { once: true, passive: true });
-        });
-      });
-    });
-
-    audioToggle.addEventListener('click', () => {
-      audioPlaying = !audioPlaying;
-      if (audioPlaying) {
-        audio.play().catch(() => {
-          audioPlaying = false;
-          updateAudioUI();
-        });
-      } else {
-        audio.pause();
-      }
-      updateAudioUI();
-    });
-
-    audio.addEventListener('play',  () => { audioPlaying = true;  updateAudioUI(); });
-    audio.addEventListener('pause', () => { audioPlaying = false; updateAudioUI(); });
-  }
-
-  function updateAudioUI() {
-    if (!audioToggle) return;
-    audioToggle.classList.toggle('playing', audioPlaying);
-    document.querySelector('.nav-logo').classList.toggle('audio-playing', audioPlaying);
-    if (audioIconOn)  audioIconOn.style.display  = audioPlaying ? ''     : 'none';
-    if (audioIconOff) audioIconOff.style.display = audioPlaying ? 'none' : '';
-    audioToggle.setAttribute('title', audioPlaying ? 'Mute ambient music' : 'Play ambient music');
-    audioToggle.setAttribute('aria-label', audioPlaying ? 'Mute ambient Indian music' : 'Play ambient Indian music');
-  }
-
   /* ── SCROLL REVEAL (Intersection Observer)
   ──────────────────────────────────────────────────── */
   const revealEls = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-fade');
@@ -289,38 +231,6 @@
 
   window.addEventListener('scroll', updateActiveLink, { passive: true });
 
-  /* ── DARK / LIGHT MODE TOGGLE
-  ──────────────────────────────────────────────────── */
-  const themeToggle = document.getElementById('theme-toggle');
-  const themeMoonIcon = document.querySelector('.theme-icon-moon');
-  const themeSunIcon  = document.querySelector('.theme-icon-sun');
-
-  function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('taal-theme', theme);
-    if (theme === 'light') {
-      if (themeMoonIcon) themeMoonIcon.style.display = 'none';
-      if (themeSunIcon)  themeSunIcon.style.display  = '';
-      if (themeToggle)   themeToggle.title = 'Switch to dark mode';
-      if (themeToggle)   themeToggle.setAttribute('aria-label', 'Switch to dark mode');
-    } else {
-      if (themeMoonIcon) themeMoonIcon.style.display = '';
-      if (themeSunIcon)  themeSunIcon.style.display  = 'none';
-      if (themeToggle)   themeToggle.title = 'Switch to light mode';
-      if (themeToggle)   themeToggle.setAttribute('aria-label', 'Switch to light mode');
-    }
-  }
-
-  const savedTheme = localStorage.getItem('taal-theme') || 'dark';
-  applyTheme(savedTheme);
-
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme') || 'dark';
-      applyTheme(current === 'dark' ? 'light' : 'dark');
-    });
-  }
-
   /* ── BACK TO TOP
   ──────────────────────────────────────────────────── */
   const backToTop = document.getElementById('back-to-top');
@@ -363,60 +273,6 @@
     }, 1200);
   };
 
-
-  /* ── KINETIC TAAL LOGO
-  ──────────────────────────────────────────────────── */
-  const heroLogoImg = document.querySelector('.hero-logo-img');
-  if (heroLogoImg) {
-    heroLogoImg.classList.add('kinetic-fallback');
-
-    let analyserNode, kineticRaf;
-    let kineticInitialized = false;
-
-    function initKineticAudioCtx() {
-      if (kineticInitialized || !audio || !window.AudioContext) return;
-      try {
-        const actx = new (window.AudioContext || window.webkitAudioContext)();
-        analyserNode = actx.createAnalyser();
-        analyserNode.fftSize = 256;
-        const src = actx.createMediaElementSource(audio);
-        src.connect(analyserNode);
-        analyserNode.connect(actx.destination);
-        kineticInitialized = true;
-        startKineticRaf();
-      } catch (e) { /* keep CSS fallback */ }
-    }
-
-    function startKineticRaf() {
-      if (kineticRaf) return;
-      heroLogoImg.classList.remove('kinetic-fallback');
-      const freq = new Uint8Array(analyserNode.frequencyBinCount);
-      let smooth = 0;
-      function frame() {
-        kineticRaf = requestAnimationFrame(frame);
-        analyserNode.getByteFrequencyData(freq);
-        let bass = 0;
-        for (let i = 0; i < 6; i++) bass += freq[i];
-        smooth = smooth * 0.86 + (bass / 6 / 255) * 0.14;
-        heroLogoImg.style.transform = 'scale(' + (1 + smooth * 0.03).toFixed(4) + ')';
-      }
-      frame();
-    }
-
-    function stopKineticRaf() {
-      if (kineticRaf) { cancelAnimationFrame(kineticRaf); kineticRaf = null; }
-      heroLogoImg.style.transform = '';
-      heroLogoImg.classList.add('kinetic-fallback');
-    }
-
-    if (audio) {
-      audio.addEventListener('play', () => {
-        initKineticAudioCtx();
-        if (kineticInitialized && !kineticRaf) startKineticRaf();
-      });
-      audio.addEventListener('pause', stopKineticRaf);
-    }
-  }
 
   /* ── MAGNETIC RESERVE BUTTON
   ──────────────────────────────────────────────────── */
