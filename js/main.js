@@ -289,4 +289,196 @@
 
   window.addEventListener('scroll', updateActiveLink, { passive: true });
 
+  /* ── DARK / LIGHT MODE TOGGLE
+  ──────────────────────────────────────────────────── */
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeMoonIcon = document.querySelector('.theme-icon-moon');
+  const themeSunIcon  = document.querySelector('.theme-icon-sun');
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('taal-theme', theme);
+    if (theme === 'light') {
+      if (themeMoonIcon) themeMoonIcon.style.display = 'none';
+      if (themeSunIcon)  themeSunIcon.style.display  = '';
+      if (themeToggle)   themeToggle.title = 'Switch to dark mode';
+      if (themeToggle)   themeToggle.setAttribute('aria-label', 'Switch to dark mode');
+    } else {
+      if (themeMoonIcon) themeMoonIcon.style.display = '';
+      if (themeSunIcon)  themeSunIcon.style.display  = 'none';
+      if (themeToggle)   themeToggle.title = 'Switch to light mode';
+      if (themeToggle)   themeToggle.setAttribute('aria-label', 'Switch to light mode');
+    }
+  }
+
+  const savedTheme = localStorage.getItem('taal-theme') || 'dark';
+  applyTheme(savedTheme);
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  }
+
+  /* ── BACK TO TOP
+  ──────────────────────────────────────────────────── */
+  const backToTop = document.getElementById('back-to-top');
+  if (backToTop) {
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+
+  /* ── FAQ ACCORDION
+  ──────────────────────────────────────────────────── */
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const answer   = btn.nextElementSibling;
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('.faq-question').forEach(q => {
+        q.setAttribute('aria-expanded', 'false');
+        q.nextElementSibling.hidden = true;
+      });
+      if (!expanded) {
+        btn.setAttribute('aria-expanded', 'true');
+        answer.hidden = false;
+      }
+    });
+  });
+
+  /* ── ALLERGEN TOGGLES
+  ──────────────────────────────────────────────────── */
+  document.querySelectorAll('.allergen-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const list     = btn.nextElementSibling;
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      list.hidden = expanded;
+    });
+  });
+
+  /* ── INLINE EVENT FORMS
+  ──────────────────────────────────────────────────── */
+  document.querySelectorAll('.event-form-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target   = document.getElementById(btn.dataset.target);
+      if (!target) return;
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      target.hidden = expanded;
+    });
+  });
+
+  window.handleEventForm = function (e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn  = form.querySelector('button[type="submit"]');
+    if (!btn) return;
+    const original = btn.textContent;
+    btn.textContent = 'Sending…';
+    btn.disabled    = true;
+    setTimeout(() => {
+      btn.textContent      = 'Request Sent ✓';
+      btn.style.background = '#1A5C3A';
+      setTimeout(() => {
+        btn.textContent      = original;
+        btn.style.background = '';
+        btn.disabled         = false;
+        form.reset();
+      }, 3000);
+    }, 1200);
+  };
+
+  /* ── INGREDIENT SPOTLIGHT SLIDER
+  ──────────────────────────────────────────────────── */
+  (function () {
+    const slides = document.querySelectorAll('.ingredient-slide');
+    const dots   = document.querySelectorAll('.ingredient-dot');
+    if (!slides.length) return;
+    let current = 0;
+    let timer;
+
+    function goTo(n) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      dots[current].setAttribute('aria-selected', 'false');
+      current = (n + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+      dots[current].setAttribute('aria-selected', 'true');
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        clearInterval(timer);
+        goTo(parseInt(dot.dataset.target, 10));
+        timer = setInterval(() => goTo(current + 1), 5000);
+      });
+    });
+
+    timer = setInterval(() => goTo(current + 1), 5000);
+  })();
+
+  /* ── PRESS QUOTE CAROUSEL
+  ──────────────────────────────────────────────────── */
+  (function () {
+    const quotes = document.querySelectorAll('.press-quote');
+    const dots   = document.querySelectorAll('.pq-dot');
+    if (!quotes.length) return;
+    let current = 0;
+    let timer;
+
+    function goTo(n) {
+      quotes[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      dots[current].setAttribute('aria-selected', 'false');
+      current = (n + quotes.length) % quotes.length;
+      quotes[current].classList.add('active');
+      dots[current].classList.add('active');
+      dots[current].setAttribute('aria-selected', 'true');
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        clearInterval(timer);
+        goTo(parseInt(dot.dataset.pq, 10));
+        timer = setInterval(() => goTo(current + 1), 4000);
+      });
+    });
+
+    timer = setInterval(() => goTo(current + 1), 4000);
+  })();
+
+  /* ── TESTIMONIALS CAROUSEL
+  ──────────────────────────────────────────────────── */
+  (function () {
+    const cards = document.querySelectorAll('.testimonial-card');
+    const dots  = document.querySelectorAll('.t-dot');
+    if (!cards.length) return;
+    let current = 0;
+    let timer;
+
+    function goTo(n) {
+      cards[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      dots[current].setAttribute('aria-selected', 'false');
+      current = (n + cards.length) % cards.length;
+      cards[current].classList.add('active');
+      dots[current].classList.add('active');
+      dots[current].setAttribute('aria-selected', 'true');
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        clearInterval(timer);
+        goTo(parseInt(dot.dataset.t, 10));
+        timer = setInterval(() => goTo(current + 1), 4500);
+      });
+    });
+
+    timer = setInterval(() => goTo(current + 1), 4500);
+  })();
+
 })();

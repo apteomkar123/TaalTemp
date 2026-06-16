@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAAL Dining — Remaining Website Ideas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;500;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-dark: #0A2B1E;
+      --gold:       #C9A227;
+      --gold-light: #E8C96A;
+      --cream:      #F8F3E8;
+      --cream-dark: #EDE4CD;
+      --muted:      #7A6845;
+    }
+    body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--green-dark); }
+
+    .cover {
+      background: var(--green-dark);
+      padding: 5rem 3rem;
+      text-align: center;
+    }
+    .cover-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 1.25rem;
+    }
+    .cover-title {
+      font-family: 'Cinzel', serif;
+      font-size: 3rem;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      margin-bottom: 0.75rem;
+    }
+    .cover-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: rgba(248,243,232,0.6);
+      margin-bottom: 2rem;
+    }
+    .cover-note {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(201,162,39,0.35);
+    }
+
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem;
+    }
+    .section-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--green-dark);
+      margin-bottom: 0.5rem;
+    }
+    .section-intro {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.65;
+      margin-bottom: 2rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .cat-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2rem 0 0.75rem;
+    }
+    .cat-badge {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.52rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.7rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .cat-line { flex: 1; height: 1px; background: var(--cream-dark); }
+
+    .idea-row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .idea-row:first-of-type { border-top: 1px solid var(--cream-dark); }
+    .idea-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--green-dark);
+      padding: 0.85rem 1rem 0.85rem 0;
+      border-right: 1px solid var(--cream-dark);
+    }
+    .idea-desc {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.77rem;
+      color: var(--muted);
+      line-height: 1.55;
+      padding: 0.85rem 0 0.85rem 1rem;
+    }
+    .idea-service {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.58rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 0.2rem;
+    }
+
+    .rec-box {
+      background: var(--green-dark);
+      padding: 2rem;
+      margin-top: 2.5rem;
+    }
+    .rec-box-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.55rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 0.4rem;
+    }
+    .rec-box-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+    .rec-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; }
+    .rec-item { border-left: 2px solid rgba(201,162,39,0.3); padding-left: 0.75rem; }
+    .rec-item-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 0.2rem;
+    }
+    .rec-item-desc { font-size: 0.7rem; color: rgba(248,243,232,0.5); line-height: 1.4; }
+
+    .doc-footer {
+      background: var(--green-dark);
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+    }
+    .doc-footer p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(201,162,39,0.35);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cover">
+    <p class="cover-eyebrow">Indian Kitchen &amp; Bar · Chapel Hill</p>
+    <h1 class="cover-title">TAAL</h1>
+    <p class="cover-sub">Remaining Website Ideas — Needs Assets or External Accounts</p>
+    <p class="cover-note">Updated June 2026 · All Quick Wins, Design Polish, and pure UI features have been implemented</p>
+  </div>
+
+  <div class="page">
+    <p class="section-label">Still To Do</p>
+    <h2 class="section-title">What Requires Your Input</h2>
+    <p class="section-intro">Everything that can be built with pure HTML/CSS/JS has already been implemented. The items below each need either real assets from you (photos, video) or an external service account to be set up first.</p>
+
+    <div class="cat-header">
+      <div class="cat-badge">Needs real photos / video</div>
+      <div class="cat-line"></div>
+    </div>
+
+    <div class="idea-row">
+      <div class="idea-name">Real Gallery Photos</div>
+      <div class="idea-desc">All 6 gallery tiles are still placeholder divs. Replace with actual food, interior, and atmosphere photography — the single biggest remaining visual gap on the site.</div>
+    </div>
+    <div class="idea-row">
+      <div class="idea-name">Chef Portrait</div>
+      <div class="idea-desc">The Chef Bio section is live but shows a placeholder for the portrait. Provide a professional photo to complete the section.</div>
+    </div>
+    <div class="idea-row">
+      <div class="idea-name">Cocktail Photos</div>
+      <div class="idea-desc">The Cocktail Spotlight section shows two placeholder photo tiles. Replace with styled close-up shots of The Peacock and Rhythm of Rosewater.</div>
+    </div>
+    <div class="idea-row">
+      <div class="idea-name">Menu Food Photos</div>
+      <div class="idea-desc">Each featured menu item in Small Plates, Mains, Biryanis, and Desserts has an img-placeholder div. Replace with food photography when ready.</div>
+    </div>
+    <div class="idea-row">
+      <div class="idea-name">About Section Photo</div>
+      <div class="idea-desc">The About section left column has a placeholder div. Replace with a real restaurant interior or atmosphere shot.</div>
+    </div>
+    <div class="idea-row">
+      <div class="idea-name">Video Embed</div>
+      <div class="idea-desc">If you create short-form content for TikTok or Instagram Reels (food prep, plating, cocktail making) — embed one clip in the gallery or hero area.</div>
+    </div>
+
+    <div class="cat-header">
+      <div class="cat-badge">Needs external service account</div>
+      <div class="cat-line"></div>
+    </div>
+
+    <div class="idea-row">
+      <div class="idea-name">Live Reservation System</div>
+      <div class="idea-desc">
+        An OpenTable or Resy integration point is already noted in the HTML. Sign up for either service, then replace the placeholder form with their embed widget.
+        <div class="idea-service">→ OpenTable / Resy (free for restaurants)</div>
+      </div>
+    </div>
+    <div class="idea-row">
+      <div class="idea-name">Newsletter — Actually Sending</div>
+      <div class="idea-desc">
+        The footer form is already in Mailchimp format. Replace the two XXXX placeholders in the form action URL with your actual Mailchimp list ID and user ID.
+        <div class="idea-service">→ Mailchimp (free up to 500 contacts)</div>
+      </div>
+    </div>
+    <div class="idea-row">
+      <div class="idea-name">Instagram Feed (Live)</div>
+      <div class="idea-desc">
+        The Instagram section is live with 6 placeholder tiles. Replace the placeholder grid with an Elfsight or SnapWidget embed to show real posts from @taal.dining.
+        <div class="idea-service">→ Elfsight / SnapWidget (free tier available)</div>
+      </div>
+    </div>
+    <div class="idea-row">
+      <div class="idea-name">Live Chat Widget</div>
+      <div class="idea-desc">
+        The Tidio integration comment is already placed in index.html before &lt;/body&gt;. Sign up at tidio.co, get your embed key, and replace the comment with the actual script tag.
+        <div class="idea-service">→ Tidio / Crisp (free tier)</div>
+      </div>
+    </div>
+    <div class="idea-row">
+      <div class="idea-name">Online Ordering (Pickup)</div>
+      <div class="idea-desc">
+        A Square Online store page for pickup orders. Free tier available; syncs with Square POS when in-restaurant hardware is added.
+        <div class="idea-service">→ Square Online (free tier · 2.9% + 30¢ per order)</div>
+      </div>
+    </div>
+    <div class="idea-row">
+      <div class="idea-name">Digital Gift Cards</div>
+      <div class="idea-desc">
+        Purchasable online, redeemable in-restaurant. Particularly valuable around holidays and for corporate gifting.
+        <div class="idea-service">→ Square Gift Cards (free to set up)</div>
+      </div>
+    </div>
+    <div class="idea-row">
+      <div class="idea-name">Club Taal — Loyalty Program</div>
+      <div class="idea-desc">
+        Tier-based rewards (Bronze / Silver / Gold) with points per dollar and birthday perks. The website now has enough brand presence to support a loyalty program launch.
+        <div class="idea-service">→ Square Loyalty (~$45/mo)</div>
+      </div>
+    </div>
+
+    <div class="rec-box">
+      <div class="rec-box-label">Recommended platform for ordering, gift cards &amp; loyalty</div>
+      <div class="rec-box-title">Square Ecosystem</div>
+      <div class="rec-grid">
+        <div class="rec-item">
+          <div class="rec-item-name">Square Online</div>
+          <div class="rec-item-desc">Free tier · pickup ordering · 2.9% + 30¢/transaction</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-item-name">Square Loyalty</div>
+          <div class="rec-item-desc">~$45/mo · Bronze/Silver/Gold tiers · syncs with POS</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-item-name">Square POS</div>
+          <div class="rec-item-desc">Free app · hardware from $49 · unified with all above</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    <p>TAAL Indian Kitchen &amp; Bar · Chapel Hill, NC · taaldining.com · Updated June 2026</p>
+  </div>
+
+</body>
+</html>

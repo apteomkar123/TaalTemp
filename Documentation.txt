@@ -184,6 +184,29 @@ RESPONSIVE
 
 CHANGES LOG
 ------------
+2026-06-15m: Major feature batch — 20 features added from the Website Ideas list:
+            1. Dark/Light Mode Toggle: moon/sun icon button added to nav. Defaults to dark. Preference saved in localStorage. Light mode inverts hero, nav, menu, events, and reservations section backgrounds to cream/off-white while keeping footer dark. CSS [data-theme="light"] overrides.
+            2. Back-to-Top Button: floating gold circle button bottom-right, appears after 400px scroll, smooth scrolls to top.
+            3. Google Maps embed: replaced SVG map placeholder in contact section with a real Google Maps iframe (maps.google.com embed URL for 310 W Franklin St).
+            4. Occasion Selector: added "Occasion" dropdown to reservation form (Birthday, Anniversary, Business Dinner, Date Night, Proposal, Graduation, Other).
+            5. FAQ Section: new section (#faq) before footer with 10 Q&As in gold accordion. Only one item open at a time.
+            6. Taal Meaning Section: new dark green section (#taal-meaning) after About explaining "taal" as the rhythmic cycle in Indian classical music. Decorative circular tabla SVG.
+            7. Ingredient Spotlight: new cream section (#ingredient-spotlight) after Taal Meaning. Auto-rotating 5s carousel across Cardamom, Saffron, and Tamarind with SVG icons, origin notes, and how TAAL uses each.
+            8. Cocktail Spotlight: new dark green section (#cocktail-spotlight) after Menu. Features The Peacock ($18) and Rhythm of Rosewater ($16) with photo placeholders and pairing suggestions.
+            9. Happy Hour Banner: slim banner (#happy-hour) after Cocktail Spotlight — "Tuesday–Friday 5–7 PM · 20% off cocktails & wine."
+            10. Chef Bio Section: new cream section (#chef) with placeholder portrait, bio for Chef Arjun Mehta, Great Vibes cursive signature.
+            11. Press & Awards Section: new cream section (#press) after Gallery. Five press logo placeholder badges + auto-rotating 4s quote carousel with dots navigation.
+            12. Testimonials Section: new cream section (#testimonials) after Press. Five guest quotes in auto-rotating 4.5s carousel with dot navigation.
+            13. Instagram Feed Section: new section (#instagram) after Testimonials. 3×2 grid of placeholder tiles with Instagram SVG icons. Integration comment for Elfsight/SnapWidget.
+            14. Inline Event Inquiry Forms: replaced "Enquire Now / Plan Your Event / Get a Quote" anchor links on all 3 event cards with toggle buttons that expand tailored inline mini-forms. Each form submits with the same 1.2s simulated success state.
+            15. Allergen Info Toggles: added collapsible allergen tag lists below 13 specific menu items (Paneer Tikka, Lamb Seekh Kebab, Heirloom Beet Chaat, Scallop Amritsari, Raan-e-TAAL, Shahi Paneer Royale, Wild Salmon Malabar, Dal TAAL, 5 Biryanis, 3 Desserts).
+            16. Drink Pairings: added "Pairs with →" callouts (gold, subtle) to 6 menu items linking to their cocktail match (Paneer Tikka→Rhythm of Rosewater, Lamb Seekh→Saffron Negroni, Raan-e-TAAL→Mango Taal, Shahi Paneer→Rose & Pistachio Lassi, Hyderabadi Biryani→Masala Mule, Gosht Biryani→Saffron Negroni).
+            17. Active Menu Tab Background: active .menu-tab now has a subtle gold gradient background in addition to the gold border.
+            18. Newsletter Mailchimp Structure: updated footer newsletter form to standard Mailchimp POST action format with NAME field and honeypot. XXXX placeholders for list/user IDs.
+            19. 404.html: created branded error page with large "404" in gold Cinzel, "The table you're looking for doesn't exist." in Cormorant italic, and a Return to Home button.
+            20. Live Chat Widget: Tidio integration comment added before </body> in index.html.
+            Also added: Chef and FAQ to desktop nav links and mobile nav menu.
+
 2026-06-15i: Comprehensive mobile responsiveness pass (375–640px):
             Container & nav padding reduced to 1.25rem on mobile.
             Section vertical padding reduced from 7rem to 4rem on mobile.
