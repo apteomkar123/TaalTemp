@@ -445,10 +445,20 @@
   .hero-cta          { animation-duration: 0.4s; animation-delay: 0.5s; }
   .hero-scroll       { animation-duration: 0.3s; animation-delay: 0.6s; }
 
-  /* Faster scroll-reveal transitions on mobile */
+  /* Faster, simpler scroll-reveal on mobile — fade only, no slide */
+  .reveal-up    { transform: none; }
+  .reveal-left  { transform: none; }
+  .reveal-right { transform: none; }
   .reveal-up, .reveal-left, .reveal-right, .reveal-fade {
-    transition-duration: 0.3s;
+    transition-duration: 0.25s;
   }
+
+  /* Halve stagger delays on mobile */
+  .stagger > *:nth-child(2) { transition-delay: 0.05s; }
+  .stagger > *:nth-child(3) { transition-delay: 0.1s; }
+  .stagger > *:nth-child(4) { transition-delay: 0.15s; }
+  .stagger > *:nth-child(5) { transition-delay: 0.2s; }
+  .stagger > *:nth-child(6) { transition-delay: 0.25s; }
 }
 
 /* 16. REDUCE MOTION SUPPORT

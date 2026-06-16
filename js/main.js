@@ -154,6 +154,7 @@
   const revealEls = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-fade');
 
   if ('IntersectionObserver' in window) {
+    const isMobile = window.innerWidth < 900;
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -161,7 +162,7 @@
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    }, { threshold: 0.04, rootMargin: isMobile ? '0px' : '0px 0px -40px 0px' });
 
     revealEls.forEach(el => revealObserver.observe(el));
   } else {
