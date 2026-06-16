@@ -194,6 +194,7 @@ CHANGES LOG
             Newsletter form stacks vertically on mobile.
             Hero peacock feather hidden on mobile (declutter). Events grid full-width on mobile.
             Footer top padding reduced. All existing 640px/900px/1100px breakpoints preserved.
+2026-06-15i: Fixed audio mute button not appearing on mobile. The .nav-cta container was hidden entirely at the 900px breakpoint, taking the audio toggle with it. Changed the rule to only hide .btn-reserve (which already appears in the mobile slide-out menu), leaving .nav-cta visible so the audio toggle remains accessible in the mobile nav bar beside the hamburger.
 2026-06-15h: Fixed ambient audio autoplay. Attempts direct play on window load; if browser blocks it, starts on first user interaction (scroll/click/touch/keydown). Mute button icon now shows speaker-waves when playing and slashed-speaker when muted. Audio starts playing by default.
 2026-06-15g: Audio autoplay attempted on load + first-interaction fallback. Icon logic corrected: speaker icon = currently playing (click to mute), muted icon = currently muted (click to play).
 2026-06-15f: Reordered menu tabs to: Small Plates, Mains, Biryanis, Sides & Breads, Desserts, Beverages, Beer & Wine, Cocktails, Lunch, Dinner.
