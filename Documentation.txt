@@ -165,9 +165,10 @@ DESIGN SYSTEM
     --copper:      #A86030  (pendant light bronze — new)
     --gold:        #C9A227  (primary accent — unchanged)
     --gold-light:  #E8C96A  (hover / light gold)
-    --cream:       #F6EDD8  (warmer parchment — mural background tone)
-    --cream-dark:  #E5D5B0  (deeper parchment)
-    --off-white:   #FAF6EE  (light section bg)
+    --gold-pale:   #E8D090  (mural golden parchment — warmer than before)
+    --cream:       #EAD9C4  (booth arch beige — dominant interior wall tone)
+    --cream-dark:  #D4BA8A  (deeper parchment — borders, accents)
+    --off-white:   #F2E8D8  (lighter beige — alternating light sections)
     --dark:        #0F0E08  (near-black warm — footer)
 
 ANIMATIONS
@@ -188,6 +189,20 @@ RESPONSIVE
 
 CHANGES LOG
 ------------
+2026-06-16j: Beige color correction — pushed all light/cream tones to match the actual restaurant beige.
+            Previous iteration (#F6EDD8 cream, #FAF6EE off-white) was too pale/cool. Re-analyzed all 5
+            Interior/ photos: the booth arch wall niches and room surfaces are a warm sandy beige (#EAD9C4),
+            with a deeper parchment-gold (#D4BA8A) for the mural panel and borders.
+            Changes:
+              css/styles.css :root —
+                --cream:      #F6EDD8 → #EAD9C4  (booth arch beige, now body + nav bg)
+                --cream-dark: #E5D5B0 → #D4BA8A  (deeper parchment for borders/accents)
+                --off-white:  #FAF6EE → #F2E8D8  (lighter beige for alternating light sections)
+                --gold-pale:  #F5E6B8 → #E8D090  (mural golden parchment)
+              css/styles.css hardcoded —
+                Light-mode hero gradient updated: #E5D5B0/#F6EDD8 → #D4BA8A/#EAD9C4
+                Light-mode transparent nav rgba updated: rgba(246,237,216,0.96) → rgba(234,217,196,0.96)
+
 2026-06-16i: Color scheme rebuilt from actual restaurant interior photos (Interior/ folder, 5 images).
             Analysis: the actual space uses deep olive/army green wainscoting panels, near-black charcoal
             textured wall tiles, cognac leather booth seating, warm walnut wood tables, and copper pendant
